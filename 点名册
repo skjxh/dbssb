@@ -1,0 +1,155 @@
+ #include<stdlib.h>
+#include <iostream>
+#include <time.h>
+#define renshu 91
+#define cishu 21
+using namespace std;
+
+int main()
+{
+	srand(time(0));
+	int class1[renshu][cishu]={0};
+	int class2[renshu][cishu]={0};
+	int class3[renshu][cishu]={0};
+	int class4[renshu][cishu]={0};
+	int class5[renshu][cishu]={0};
+	int i=0,j,k,l;
+
+	for (int jishu=1;jishu<=90;jishu++)
+	{
+		class1[jishu][0]=jishu;
+	}
+		for (int jishu=1;jishu<=90;jishu++)
+	{
+		class2[jishu][0]=jishu;
+	}
+		for (int jishu=1;jishu<=90;jishu++)
+	{
+		class3[jishu][0]=jishu;
+	}
+		for (int jishu=1;jishu<=90;jishu++)
+	{
+		class4[jishu][0]=jishu;
+	}
+		for (int jishu=1;jishu<=90;jishu++)
+	{
+		class5[jishu][0]=jishu;
+	}
+	
+	
+	
+	for (i=1;i<=5;i++)//挑五个倒霉蛋  第一节课 
+	{
+		j=1+rand()%90;//倒霉蛋序号 
+		for (l=1;l<21;l++)//先设置倒霉蛋全没到 
+		{
+			class1[j][l]=1;
+		}
+		for (k=1;k<=4;k++)//选出倒霉蛋到的时候 
+		{
+			
+			int n=2+rand()%15;
+			class1[j][n]=0; 
+		}
+	}
+	for (i=1;i<=5;i++)//挑五个倒霉蛋  第二节课 
+	{
+		j=1+rand()%90;//倒霉蛋序号 
+		for (l=1;l<21;l++)//先设置倒霉蛋全没到 
+		{
+			class2[j][l]=1;
+		}
+		for (k=1;k<=4;k++)//选出倒霉蛋到的时候 
+		{
+			
+			int n=2+rand()%15;
+			class2[j][n]=0; 
+		}
+	}
+	for (i=1;i<=5;i++)//挑五个倒霉蛋  第三节课 
+	{
+		j=1+rand()%90;//倒霉蛋序号 
+		for (l=1;l<21;l++)//先设置倒霉蛋全没到 
+		{
+			class3[j][l]=1;
+		}
+		for (k=1;k<=4;k++)//选出倒霉蛋到的时候 
+		{
+			
+			int n=2+rand()%15;
+			class3[j][n]=0; 
+		}
+	}
+	for (i=1;i<=5;i++)//挑五个倒霉蛋  第四节课 
+	{
+		j=1+rand()%90;//倒霉蛋序号 
+		for (l=1;l<21;l++)//先设置倒霉蛋全没到 
+		{
+			class4[j][l]=1;
+		}
+		for (k=1;k<=4;k++)//选出倒霉蛋到的时候  
+		{
+			
+			int n=2+rand()%15;
+			class4[j][n]=0; 
+		}
+	}
+	for (i=1;i<=5;i++)//挑五个倒霉蛋  第五节课 
+	{
+		j=1+rand()%90;//倒霉蛋序号 
+		for (l=1;l<21;l++)//先设置倒霉蛋全没到 
+		{
+			class5[j][l]=1;
+		}
+		for (k=1;k<=4;k++)//选出倒霉蛋到的时候 
+		{
+			
+			int n=2+rand()%15;
+			class5[j][n]=0; 
+		}
+	}
+	
+
+	FILE *fpWrite=fopen("data1.txt","w");  
+
+    for(int i=1;i<=90;i++){
+        for(int l=0;l<21;l++){
+            fprintf(fpWrite,"%d ",class1[i][l]);
+        }
+        fprintf(fpWrite,"\n");
+    }
+    
+    for(int i=1;i<=90;i++){
+        for(int l=0;l<21;l++){
+            fprintf(fpWrite,"%d ",class2[i][l]);
+        }
+        fprintf(fpWrite,"\n");
+    }
+    
+    for(int i=1;i<=90;i++){
+        for(int l=0;l<21;l++){
+            fprintf(fpWrite,"%d ",class3[i][l]);
+        }
+        fprintf(fpWrite,"\n");
+    }
+    
+    for(int i=1;i<=90;i++){
+        for(int l=0;l<21;l++){
+            fprintf(fpWrite,"%d ",class4[i][l]);
+        }
+        fprintf(fpWrite,"\n");
+    }
+    
+	for(int i=1;i<=90;i++){
+        for(int l=0;l<21;l++){
+            fprintf(fpWrite,"%d ",class5[i][l]);
+        }
+        fprintf(fpWrite,"\n");
+    }
+    
+    
+	fclose(fpWrite);
+
+
+	return 0;
+}
